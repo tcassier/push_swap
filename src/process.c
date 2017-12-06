@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   process.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcassier <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/08 06:03:18 by tcassier          #+#    #+#             */
-/*   Updated: 2017/12/05 09:44:18 by tcassier         ###   ########.fr       */
+/*   Created: 2017/12/05 09:19:59 by tcassier          #+#    #+#             */
+/*   Updated: 2017/12/05 09:33:47 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "checker.h"
 
-void	ft_bzero(void *s, size_t n)
+static int	check(int **stack_a, int **stack_b, int ac)
 {
-	while ((int)--n >= 0)
-		((char*)s)[n] = '\0';
+	if (stack_b[0])
+		return (-1);
+	if ()
+	return (0);
+}
+
+int			process(int **stack_a, int **stack_b, int ac)
+{
 }

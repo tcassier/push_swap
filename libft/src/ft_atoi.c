@@ -6,7 +6,7 @@
 /*   By: tcassier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/07 21:57:20 by tcassier          #+#    #+#             */
-/*   Updated: 2017/11/28 02:56:33 by tcassier         ###   ########.fr       */
+/*   Updated: 2017/12/05 08:08:19 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,8 @@ int					ft_atoi(const char *str)
 		str++;
 	while (ft_isdigit(str[index]))
 		ret = ret * 10 + str[index++] - '0';
-	return ((int)ret * sign);
+	ret *= sign;
+	if (ret > 2147483647 || ret < -2147483648)
+		return (-1);
+	return ((int)ret);
 }

@@ -1,16 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcassier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/30 22:47:24 by tcassier          #+#    #+#             */
-/*   Updated: 2017/11/30 22:48:25 by tcassier         ###   ########.fr       */
+/*   Created: 2017/12/05 07:33:15 by tcassier          #+#    #+#             */
+/*   Updated: 2017/12/05 09:44:20 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHECKER_H
 # define CHECKER_H
 # include "libft.h"
+
+int		process(int **stack_a, int **stack_b, int ac);
 #endif

@@ -6,7 +6,7 @@
 #    By: tcassier <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/27 11:19:07 by tcassier          #+#    #+#              #
-#    Updated: 2017/11/30 22:51:26 by tcassier         ###   ########.fr        #
+#    Updated: 2017/12/05 07:57:06 by tcassier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ CFLAGS = -Wall -Wextra -Werror
 SRC_PATH = ./src
 SRCS = $(addprefix $(SRC_PATH)/, $(SRC))
 SRC = ft_atoi.c        \
+	  ft_atol.c        \
 	  ft_bzero.c       \
 	  ft_isalnum.c     \
 	  ft_isalpha.c     \

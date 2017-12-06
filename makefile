@@ -6,7 +6,7 @@
 #    By: tcassier <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/27 11:19:07 by tcassier          #+#    #+#              #
-#    Updated: 2017/11/30 22:52:00 by tcassier         ###   ########.fr        #
+#    Updated: 2017/12/05 07:33:05 by tcassier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,8 +32,8 @@ OBJ_2 = $(SRC_2:.c=.o)
 
 INC_PATH = ./includes
 INCS = $(addprefix $(INC_PATH)/, $(INC))
-INC = checker.h       \
-	  push_swap.h     \
+INC = push_swap.h     \
+	  checker.h       \
 	  libft.h
 
 LFT_PATH = ./libft
