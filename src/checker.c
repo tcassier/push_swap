@@ -6,13 +6,13 @@
 /*   By: tcassier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 22:44:54 by tcassier          #+#    #+#             */
-/*   Updated: 2017/12/05 09:44:15 by tcassier         ###   ########.fr       */
+/*   Updated: 2017/12/07 19:32:13 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-static int	check_av(int ac, char **av)
+static void	check_av(int ac, char **av)
 {
 	int		index_tab;
 	int		index_str;
@@ -24,58 +24,55 @@ static int	check_av(int ac, char **av)
 		index = -1;
 		while (++index < ac)
 		{
-			if (!ft_strncmp(av[index], av[index_tab]) && index != index_tab)
-				return (-1);
+			if (!ft_strcmp(av[index], av[index_tab]) && index != index_tab)
+				failure();
 		}
 		index_str = -1;
-		while ((*av)[++index_str])
+		if (av[index_tab][0] == '-' || av[index_tab][0] == '+')
+			index_str++;
+		while (av[index_tab][++index_str])
 		{
-			if (!isdigit((*av)[index_str]))
-				return (-1);
+			if (!ft_isdigit(av[index_tab][index_str]))
+				failure();
 		}
 	}
-	return (0);
 }
 
-static int	parser(int ac, char **av, int **stack_a, int **stack_b)
+static void	parser(int ac, char **av, int *stack_a, int *stack_b)
 {
 	int		index;
+	int		index_rev;
 
-	if (ac > 1 && check_av(ac, av) != -1)
+	check_av(ac, av);
+	if (ac > 1)
 	{
-		if ((!stack_a = (int**)ft_memalloc(sizeof(int) * ac)) ||
-				(!(stack_b = (int**)ft_memalloc(sizeof(int) * ac))))
-			return (-1);
+		if (!(stack_a = (int*)ft_memalloc(sizeof(int) * ac)) ||
+		(!(stack_b = (int*)ft_memalloc(sizeof(int) * ac))))
+			failure();
 		index = -1;
-		while (++index < ac)
+		index_rev = ac;
+		while (++index < ac && --index_rev >= 0)
 		{
 			if (ft_strlen(av[index]) > 2 && ft_atoi(av[index]) == -1)
-				return (-1);
-			stack_a[index] = ft_atoi(av[index]);
+				failure();
+			stack_a[index_rev] = ft_atoi(av[index]);
 		}
-		return (0);
 	}
-	return (-1);
 }
 
 int			main(int ac, char **av)
 {
-	int		**stack_a;
-	int		**stack_b;
-	int		ret;
-
+	int		*stack_a;
+	int		*stack_b;
+	
 	stack_a = NULL;
 	stack_b = NULL;
-	if (parser(--ac, ++av, stack_a, stack_b) == -1)
-	{
-		ft_putstr_fd("Error\n", 2);
-		return (-1);
-	}
+	parser(--ac, ++av, stack_a, stack_b);
 	if (!process(stack_a, stack_b, ac))
 		ft_putstr("KO\n");
 	else
 		ft_putstr("OK\n");
 	free(stack_a);
 	free(stack_b);
-	return (0);
+	return (EXIT_SUCCESS);
 }

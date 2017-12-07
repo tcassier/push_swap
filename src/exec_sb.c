@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   exec_sb.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcassier <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/30 22:46:34 by tcassier          #+#    #+#             */
-/*   Updated: 2017/11/30 22:47:11 by tcassier         ###   ########.fr       */
+/*   Created: 2017/12/06 09:48:05 by tcassier          #+#    #+#             */
+/*   Updated: 2017/12/06 13:39:24 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
-int		main(int ac, char **av)
+void	exec_sb(t_stack *data)
 {
-	ac = 0;
-	av = NULL;
-	return (0);
+	int	tmp;
+
+	if (data->size_b > 1)
+	{
+		tmp = data->stack_b[data->size_b - 1];
+		data->stack_b[data->size_b - 1] = data->stack_b[data->size_b - 2];
+		data->stack_b[data->size_b - 2] = tmp;
+	}
 }

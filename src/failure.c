@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   failure.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcassier <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/08 02:52:14 by tcassier          #+#    #+#             */
-/*   Updated: 2017/12/07 20:09:28 by tcassier         ###   ########.fr       */
+/*   Created: 2017/12/06 07:07:49 by tcassier          #+#    #+#             */
+/*   Updated: 2017/12/06 07:09:14 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "checker.h"
 
-char		*ft_strncpy(char *dst, const char *src, size_t n)
+void	failure(void)
 {
-	size_t	index;
-
-	index = -1;
-	while (src[++index] && index < n)
-		dst[index] = src[index];
-	index--;
-	while (++index < n)
-		dst[index] = '\0';
-	return (dst);
+	ft_putstr_fd("Error\n", 2);
+	exit(EXIT_FAILURE);
 }

@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   exec_ss.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcassier <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/08 02:52:14 by tcassier          #+#    #+#             */
-/*   Updated: 2017/12/07 20:09:28 by tcassier         ###   ########.fr       */
+/*   Created: 2017/12/06 10:14:38 by tcassier          #+#    #+#             */
+/*   Updated: 2017/12/06 13:39:44 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "checker.h"
 
-char		*ft_strncpy(char *dst, const char *src, size_t n)
+void	exec_ss(t_stack *data)
 {
-	size_t	index;
-
-	index = -1;
-	while (src[++index] && index < n)
-		dst[index] = src[index];
-	index--;
-	while (++index < n)
-		dst[index] = '\0';
-	return (dst);
+	exec_sa(data);
+	exec_sb(data);
 }

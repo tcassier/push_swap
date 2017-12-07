@@ -6,7 +6,7 @@
 /*   By: tcassier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/07 16:37:38 by tcassier          #+#    #+#             */
-/*   Updated: 2017/12/05 07:57:34 by tcassier         ###   ########.fr       */
+/*   Updated: 2017/12/07 20:08:09 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <string.h>
+# include <fcntl.h>
+# include <stdio.h>
 # define BUFF_SIZE 4096
 
 typedef struct		s_list
@@ -32,7 +34,6 @@ typedef struct		s_stock
 }					t_stock;
 
 int					ft_atoi(const char *str);
-long				ft_atol(const char *str);
 void				ft_bzero(void *s, size_t n);
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);
