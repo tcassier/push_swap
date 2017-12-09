@@ -6,11 +6,11 @@
 /*   By: tcassier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 22:44:54 by tcassier          #+#    #+#             */
-/*   Updated: 2017/12/07 19:32:13 by tcassier         ###   ########.fr       */
+/*   Updated: 2017/12/09 13:03:23 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "push_swap.h"
 
 static void	check_av(int ac, char **av)
 {
@@ -72,7 +72,5 @@ int			main(int ac, char **av)
 		ft_putstr("KO\n");
 	else
 		ft_putstr("OK\n");
-	free(stack_a);
-	free(stack_b);
 	return (EXIT_SUCCESS);
 }

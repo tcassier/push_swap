@@ -5,12 +5,42 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcassier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/30 22:48:34 by tcassier          #+#    #+#             */
-/*   Updated: 2017/12/05 06:54:06 by tcassier         ###   ########.fr       */
+/*   Created: 2017/12/05 07:33:15 by tcassier          #+#    #+#             */
+/*   Updated: 2017/12/09 12:53:35 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "libft.h"
+
+typedef struct	s_stack
+{
+	int			*stack_a;
+	int			*stack_b;
+	int			size_a;
+	int			size_b;
+}				t_stack;
+
+/*
+** CHECKER_PART
+*/
+
+void			exec_pa(t_stack *data);
+void			exec_pb(t_stack *data);
+void			exec_ra(t_stack *data);
+void			exec_rb(t_stack *data);
+void			exec_rr(t_stack *data);
+void			exec_rra(t_stack *data);
+void			exec_rrb(t_stack *data);
+void			exec_rrr(t_stack *data);
+void			exec_sa(t_stack *data);
+void			exec_sb(t_stack *data);
+void			exec_ss(t_stack *data);
+void			failure(void);
+int				process(int *stack_a, int *stack_b, int ac);
+
+/*
+** PUSH_SWAP_PART
+*/
 #endif

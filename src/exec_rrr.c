@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   failure.c                                          :+:      :+:    :+:   */
+/*   exec_rrr.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/06 07:07:49 by tcassier          #+#    #+#             */
-/*   Updated: 2017/12/09 09:47:36 by tcassier         ###   ########.fr       */
+/*   Created: 2017/12/09 10:26:48 by tcassier          #+#    #+#             */
+/*   Updated: 2017/12/09 10:27:57 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	failure(void)
+void	exec_rrr(t_stack *data)
 {
-	ft_putstr_fd("Error\n", 2);
-	exit(EXIT_FAILURE);
+	exec_rra(data);
+	exec_rrb(data);
 }

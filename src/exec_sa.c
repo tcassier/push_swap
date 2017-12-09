@@ -6,11 +6,11 @@
 /*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 09:48:05 by tcassier          #+#    #+#             */
-/*   Updated: 2017/12/06 13:26:18 by tcassier         ###   ########.fr       */
+/*   Updated: 2017/12/09 09:46:53 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "push_swap.h"
 
 void	exec_sa(t_stack *data)
 {

@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   failure.c                                          :+:      :+:    :+:   */
+/*   exec_rrb.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/06 07:07:49 by tcassier          #+#    #+#             */
-/*   Updated: 2017/12/09 09:47:36 by tcassier         ###   ########.fr       */
+/*   Created: 2017/12/09 10:09:11 by tcassier          #+#    #+#             */
+/*   Updated: 2017/12/09 10:26:38 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	failure(void)
+void	exec_rrb(t_stack *data)
 {
-	ft_putstr_fd("Error\n", 2);
-	exit(EXIT_FAILURE);
+	int	tmp;
+	int	index;
+
+	if (data->size_b > 1)
+	{
+		index = -1;
+		tmp = data->stack_b[0];
+		while (++index < data->size_b - 1)
+			data->stack_b[index] = data->stack_b[index + 1];
+		data->stack_b[index] = tmp;
+	}
 }

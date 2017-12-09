@@ -1,43 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   exec_rra.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/06 07:27:20 by tcassier          #+#    #+#             */
-/*   Updated: 2017/12/06 10:13:43 by tcassier         ###   ########.fr       */
+/*   Created: 2017/12/09 10:09:11 by tcassier          #+#    #+#             */
+/*   Updated: 2017/12/09 10:26:32 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <string.h>
+#include "push_swap.h"
 
-
-typedef struct   yolo
+void	exec_rra(t_stack *data)
 {
-	int tab[5];
-}				lol;
+	int	tmp;
+	int	index;
 
-int		main(void)
-{
-	lol	*yolo;
-	int i;
-
-	yolo = malloc(sizeof(lol));
-	(yolo->tab)[0] = 5;
-	(yolo->tab)[1] = 4;
-	(yolo->tab)[2] = 7;
-	(yolo->tab)[3] = 12;
-	(yolo->tab)[4] = 14;
-	i = 0;
-	while (i < 5)
+	if (data->size_a > 1)
 	{
-		printf("%d\n", yolo->tab[i]);
-		i++;
+		index = -1;
+		tmp = data->stack_a[0];
+		while (++index < data->size_a - 1)
+			data->stack_a[index] = data->stack_a[index + 1];
+		data->stack_a[index] = tmp;
 	}
-	return (0);
 }
