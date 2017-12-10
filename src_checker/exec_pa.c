@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exec_sb.c                                          :+:      :+:    :+:   */
+/*   exec_pa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/06 09:48:05 by tcassier          #+#    #+#             */
-/*   Updated: 2017/12/09 09:47:09 by tcassier         ###   ########.fr       */
+/*   Created: 2017/12/06 11:37:49 by tcassier          #+#    #+#             */
+/*   Updated: 2017/12/10 13:50:29 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
-void	exec_sb(t_stack *data)
+void	exec_pa(t_stack *data)
 {
-	int	tmp;
-
-	if (data->size_b > 1)
+	if (data->size_b > 0)
 	{
-		tmp = data->stack_b[data->size_b - 1];
-		data->stack_b[data->size_b - 1] = data->stack_b[data->size_b - 2];
-		data->stack_b[data->size_b - 2] = tmp;
+		if (data->size_a > 0)
+			data->stack_a[data->size_a] = data->stack_b[data->size_b - 1];
+		else
+			data->stack_a[0] = data->stack_b[data->size_b - 1];
+		data->size_a++;
+		data->size_b--;
 	}
 }

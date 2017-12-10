@@ -6,7 +6,7 @@
 #    By: tcassier <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/27 11:19:07 by tcassier          #+#    #+#              #
-#    Updated: 2017/12/10 11:32:13 by tcassier         ###   ########.fr        #
+#    Updated: 2017/12/10 20:12:56 by tcassier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,10 @@ NAME_2 = push_swap
 CC = clang
 CFLAGS = -Wall -Werror -Wextra -I$(INC_PATH) -I$(LFT_INC_PATH)
 
-SRC_PATH = ./src/
-SRCS_1 = $(addprefix $(SRC_PATH), $(SRC_1))
-SRCS_2 = $(addprefix $(SRC_PATH), $(SRC_2))
+SRC_1_PATH = ./src_checker/
+SRC_2_PATH = ./src_push_swap/
+SRCS_1 = $(addprefix $(SRC_1_PATH), $(SRC_1))
+SRCS_2 = $(addprefix $(SRC_2_PATH), $(SRC_2))
 SRC_1 = checker.c      \
 		exec_pa.c      \
 		exec_pb.c      \
@@ -45,8 +46,10 @@ OBJ_1 = $(SRC_1:.c=.o)
 OBJ_2 = $(SRC_2:.c=.o)
 
 INC_PATH = ./includes/
-INCS = $(addprefix $(INC_PATH), $(INC))
-INC = push_swap.h
+INCS_1 = $(addprefix $(INC_PATH), $(INC_1))
+INCS_1 = $(addprefix $(INC_PATH), $(INC_2))
+INC_1 = checker.h
+INC_2 = push_swap.h
 
 LFT_INC_PATH = $(LFT_PATH)includes/
 LFT_PATH = ./libft/
@@ -62,7 +65,10 @@ $(NAME_2): $(OBJ_PATH) $(OBJS_2)
 	@make -C $(LFT_PATH) all
 	@$(CC) $(CFLAGS) -o $@ $(OBJS_2) $(LFT_FLAG)
 
-$(OBJ_PATH)%.o: $(SRC_PATH)%.c $(INCS)
+$(OBJ_PATH)%.o: $(SRC_1_PATH)%.c $(INCS_1)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJ_PATH)%.o: $(SRC_2_PATH)%.c $(INCS_2)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_PATH):

@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   failure.c                                          :+:      :+:    :+:   */
+/*   exec_rra.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/06 07:07:49 by tcassier          #+#    #+#             */
-/*   Updated: 2017/12/10 12:13:39 by tcassier         ###   ########.fr       */
+/*   Created: 2017/12/09 10:09:11 by tcassier          #+#    #+#             */
+/*   Updated: 2017/12/10 13:51:38 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
-void	failure(void)
+void	exec_rra(t_stack *data)
 {
-	ft_putstr_fd("Error\n", 2);
-	exit(EXIT_FAILURE);
+	int	tmp;
+	int	index;
+
+	if (data->size_a > 1)
+	{
+		index = -1;
+		tmp = data->stack_a[0];
+		while (++index < data->size_a - 1)
+			data->stack_a[index] = data->stack_a[index + 1];
+		data->stack_a[index] = tmp;
+	}
 }

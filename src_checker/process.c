@@ -6,11 +6,11 @@
 /*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 09:19:59 by tcassier          #+#    #+#             */
-/*   Updated: 2017/12/10 12:10:14 by tcassier         ###   ########.fr       */
+/*   Updated: 2017/12/10 20:19:33 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 static int	check_stack(t_stack *data)
 {
@@ -25,15 +25,6 @@ static int	check_stack(t_stack *data)
 			return (0);
 	}
 	return (1);
-}
-
-static void	fake_exec(t_stack *data, char *line)
-{
-	free(data->stack_a);
-	free(data->stack_b);
-	free(data);
-	free(line);
-	failure();
 }
 
 static void	exec(t_stack *data, char *line)
@@ -61,7 +52,7 @@ static void	exec(t_stack *data, char *line)
 	else if (!ft_strcmp(line, "ss"))
 		exec_ss(data);
 	else
-		fake_exec(data, line);
+		failure();
 }
 
 int			process(int *stack_a, int *stack_b, int ac, int print)
@@ -83,8 +74,5 @@ int			process(int *stack_a, int *stack_b, int ac, int print)
 			print_stack(data);
 	}
 	ret = check_stack(data);
-	free(data->stack_a);
-	free(data->stack_b);
-	free(data);
 	return (ret);
 }

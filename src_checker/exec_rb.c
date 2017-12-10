@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exec_ra.c                                          :+:      :+:    :+:   */
+/*   exec_rb.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/09 09:57:01 by tcassier          #+#    #+#             */
-/*   Updated: 2017/12/09 12:38:09 by tcassier         ###   ########.fr       */
+/*   Updated: 2017/12/10 13:51:09 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
-void	exec_ra(t_stack *data)
+void	exec_rb(t_stack *data)
 {
 	int	tmp;
 	int index;
 
-	if (data->size_a > 1)
+	if (data->size_b > 1)
 	{
-		index = data->size_a;
-		tmp = data->stack_a[data->size_a - 1];
+		index = data->size_b;
+		tmp = data->stack_b[data->size_b - 1];
 		while (--index)
-			data->stack_a[index] = data->stack_a[index - 1];
-		data->stack_a[index] = tmp;
+			data->stack_b[index] = data->stack_b[index - 1];
+		data->stack_b[index] = tmp;
 	}
 }

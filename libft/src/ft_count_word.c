@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exec_rra.c                                         :+:      :+:    :+:   */
+/*   ft_count_word.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/09 10:09:11 by tcassier          #+#    #+#             */
-/*   Updated: 2017/12/10 11:16:56 by tcassier         ###   ########.fr       */
+/*   Created: 2017/12/10 15:39:47 by tcassier          #+#    #+#             */
+/*   Updated: 2017/12/10 15:41:40 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-void	exec_rra(t_stack *data)
+int		ft_count_word(char const *s, char c)
 {
-	int	tmp;
-	int	index;
+	int	count;
+	int	begin_word;
 
-	if (data->size_a > 1)
+	begin_word = 0;
+	count = 0;
+	while (*s != '\0')
 	{
-		index = -1;
-		tmp = data->stack_a[0];
-		while (++index < data->size_a - 1)
-			data->stack_a[index] = data->stack_a[index + 1];
-		data->stack_a[index] = tmp;
+		if (begin_word == 1 && *s == c)
+			begin_word = 0;
+		if (begin_word == 0 && *s != c)
+		{
+			begin_word = 1;
+			count++;
+		}
+		s++;
 	}
+	return (count);
 }
