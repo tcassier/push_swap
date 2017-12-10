@@ -6,7 +6,7 @@
 #    By: tcassier <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/27 11:19:07 by tcassier          #+#    #+#              #
-#    Updated: 2017/12/09 09:56:53 by tcassier         ###   ########.fr        #
+#    Updated: 2017/12/10 11:32:13 by tcassier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,8 @@
 NAME_1 = checker
 NAME_2 = push_swap
 
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I$(INC_PATH) -I$(LFT_INC_PATH)
+CC = clang
+CFLAGS = -Wall -Werror -Wextra -I$(INC_PATH) -I$(LFT_INC_PATH)
 
 SRC_PATH = ./src/
 SRCS_1 = $(addprefix $(SRC_PATH), $(SRC_1))
@@ -34,6 +34,7 @@ SRC_1 = checker.c      \
 		exec_sb.c      \
 		exec_ss.c      \
 		failure.c      \
+		print_stack.c  \
 		process.c
 SRC_2 = push_swap.c
 
@@ -55,11 +56,11 @@ all: $(NAME_1) $(NAME_2)
 
 $(NAME_1): $(OBJ_PATH) $(OBJS_1)
 	@make -C $(LFT_PATH) all
-	$(CC) $(CFLAGS) -o $@ $(OBJS_1) $(LFT_FLAG)
+	@$(CC) $(CFLAGS) -o $@ $(OBJS_1) $(LFT_FLAG)
 
 $(NAME_2): $(OBJ_PATH) $(OBJS_2)
 	@make -C $(LFT_PATH) all
-	$(CC) $(CFLAGS) -o $@ $(OBJS_2) $(LFT_FLAG)
+	@$(CC) $(CFLAGS) -o $@ $(OBJS_2) $(LFT_FLAG)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c $(INCS)
 	$(CC) $(CFLAGS) -c $< -o $@

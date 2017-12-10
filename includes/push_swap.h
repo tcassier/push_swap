@@ -6,7 +6,7 @@
 /*   By: tcassier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 07:33:15 by tcassier          #+#    #+#             */
-/*   Updated: 2017/12/09 12:53:35 by tcassier         ###   ########.fr       */
+/*   Updated: 2017/12/10 12:10:26 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ void			exec_sa(t_stack *data);
 void			exec_sb(t_stack *data);
 void			exec_ss(t_stack *data);
 void			failure(void);
-int				process(int *stack_a, int *stack_b, int ac);
+void			print_stack(t_stack *data);
+int				process(int *stack_a, int *stack_b, int ac, int process);
 
 /*
 ** PUSH_SWAP_PART

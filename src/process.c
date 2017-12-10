@@ -6,7 +6,7 @@
 /*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 09:19:59 by tcassier          #+#    #+#             */
-/*   Updated: 2017/12/09 13:13:00 by tcassier         ###   ########.fr       */
+/*   Updated: 2017/12/10 12:10:14 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static void	exec(t_stack *data, char *line)
 		fake_exec(data, line);
 }
 
-int			process(int *stack_a, int *stack_b, int ac)
+int			process(int *stack_a, int *stack_b, int ac, int print)
 {
 	t_stack	*data;
 	char	*line;
@@ -77,7 +77,11 @@ int			process(int *stack_a, int *stack_b, int ac)
 	data->size_a = ac;
 	data->size_b = 0;
 	while (get_next_line(0, &line))
+	{
 		exec(data, line);
+		if (print == 1)
+			print_stack(data);
+	}
 	ret = check_stack(data);
 	free(data->stack_a);
 	free(data->stack_b);

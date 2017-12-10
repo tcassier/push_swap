@@ -6,7 +6,7 @@
 /*   By: tcassier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 22:44:54 by tcassier          #+#    #+#             */
-/*   Updated: 2017/12/09 13:03:23 by tcassier         ###   ########.fr       */
+/*   Updated: 2017/12/10 12:15:09 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	check_av(int ac, char **av)
 	}
 }
 
-static void	parser(int ac, char **av, int *stack_a, int *stack_b)
+static void	parser(int ac, char **av, int **stack_a, int **stack_b)
 {
 	int		index;
 	int		index_rev;
@@ -46,8 +46,8 @@ static void	parser(int ac, char **av, int *stack_a, int *stack_b)
 	check_av(ac, av);
 	if (ac > 1)
 	{
-		if (!(stack_a = (int*)ft_memalloc(sizeof(int) * ac)) ||
-		(!(stack_b = (int*)ft_memalloc(sizeof(int) * ac))))
+		if (!(*stack_a = (int*)ft_memalloc(sizeof(int) * ac)) ||
+		(!(*stack_b = (int*)ft_memalloc(sizeof(int) * ac))))
 			failure();
 		index = -1;
 		index_rev = ac;
@@ -55,7 +55,7 @@ static void	parser(int ac, char **av, int *stack_a, int *stack_b)
 		{
 			if (ft_strlen(av[index]) > 2 && ft_atoi(av[index]) == -1)
 				failure();
-			stack_a[index_rev] = ft_atoi(av[index]);
+			(*stack_a)[index_rev] = ft_atoi(av[index]);
 		}
 	}
 }
@@ -64,11 +64,21 @@ int			main(int ac, char **av)
 {
 	int		*stack_a;
 	int		*stack_b;
-	
+	int		print;
+
+	print = 0;
 	stack_a = NULL;
 	stack_b = NULL;
-	parser(--ac, ++av, stack_a, stack_b);
-	if (!process(stack_a, stack_b, ac))
+	if (ac < 2)
+		failure();
+	if (!ft_strcmp(av[1], "-v"))
+	{
+		print++;
+		av++;
+		ac--;
+	}
+	parser(--ac, ++av, &stack_a, &stack_b);
+	if (!process(stack_a, stack_b, ac, print))
 		ft_putstr("KO\n");
 	else
 		ft_putstr("OK\n");
