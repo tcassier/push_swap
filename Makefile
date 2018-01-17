@@ -6,7 +6,7 @@
 #    By: tcassier <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/27 11:19:07 by tcassier          #+#    #+#              #
-#    Updated: 2017/12/11 13:58:35 by tcassier         ###   ########.fr        #
+#    Updated: 2018/01/17 18:40:30 by tcassier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 NAME_1 = checker
 NAME_2 = push_swap
 
-CC = clang
+CC = gcc
 CFLAGS = -Wall -Werror -Wextra -I$(INC_PATH) -I$(LFT_INC_PATH)
 
 SRC_1_PATH = ./src_checker/

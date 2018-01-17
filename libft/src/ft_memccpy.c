@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcassier <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/08 05:43:02 by tcassier          #+#    #+#             */
-/*   Updated: 2017/11/28 02:59:51 by tcassier         ###   ########.fr       */
+/*   Created: 2018/01/12 19:30:17 by tcassier          #+#    #+#             */
+/*   Updated: 2018/01/12 22:26:28 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void		*ft_memccpy(void *dst, const void *src, int c, size_t n)
 	{
 		((char*)dst)[index] = ((char*)src)[index];
 		if (((char*)src)[index] == (char)c)
-			return (&dst[index + 1]);
+			return (dst + index + 1);
 		index++;
 	}
 	return (NULL);

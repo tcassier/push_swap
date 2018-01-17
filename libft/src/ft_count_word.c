@@ -5,15 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/10 15:39:47 by tcassier          #+#    #+#             */
-/*   Updated: 2017/12/10 15:41:40 by tcassier         ###   ########.fr       */
+/*   Created: 2017/12/11 09:58:45 by tcassier          #+#    #+#             */
+/*   Updated: 2018/01/12 19:26:04 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_count_word(char const *s, char c)
+int			ft_count_word(char const *s, char c)
 {
-	int	count;
-	int	begin_word;
+	int		count;
+	int		begin_word;
 
 	begin_word = 0;
 	count = 0;
