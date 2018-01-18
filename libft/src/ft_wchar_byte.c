@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_uimaxtoa_base.c                                 :+:      :+:    :+:   */
+/*   ft_wchar_byte.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/10 11:55:55 by tcassier          #+#    #+#             */
-/*   Updated: 2018/01/17 21:49:10 by tcassier         ###   ########.fr       */
+/*   Created: 2018/01/17 23:53:17 by tcassier          #+#    #+#             */
+/*   Updated: 2018/01/18 02:55:54 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_uimaxtoa_base(uintmax_t n, int base)
+int					ft_wchar_byte(wchar_t c)
 {
-	int		len;
-	char	*str;
+	unsigned int	len;
+	unsigned int	tmp;
 
-	if (n == 0)
-		return (ft_strdup("0"));
-	len = ft_nbrlen_uimax_base(n, base);
-	if (!(str = ft_strnew(len)))
-		return (NULL);
-	str[len--] = '\0';
-	while (n > 0)
+	len = 0;
+	tmp = 1;
+	while (tmp <= (unsigned int)c)
 	{
-		if (n % base < 10)
-			str[len--] = n % base + '0';
-		else
-			str[len--] = n % base - 10 + 'a';
-		n /= base;
+		tmp <<= 1;
+		len++;
 	}
-	return (str);
+	if (len <= 7)
+		return (1);
+	else if (len <= 11)
+		return (2);
+	else if (len <= 16)
+		return (3);
+	else if (len <= 21)
+		return (4);
+	else
+		return (-1);
 }

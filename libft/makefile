@@ -6,7 +6,7 @@
 #    By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/15 23:45:03 by tcassier          #+#    #+#              #
-#    Updated: 2018/01/16 20:16:31 by tcassier         ###   ########.fr        #
+#    Updated: 2018/01/18 04:58:31 by tcassier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,6 +73,7 @@ SRC = ft_atoi.c                \
 	  ft_putnbr_fd.c           \
 	  ft_putstr.c              \
 	  ft_putstr_fd.c           \
+	  ft_sqrt.c                \
 	  ft_strappend.c           \
 	  ft_strappend_sec.c       \
 	  ft_strcat.c              \
@@ -91,8 +92,8 @@ SRC = ft_atoi.c                \
 	  ft_strlen.c              \
 	  ft_strmap.c              \
 	  ft_strmapi.c             \
-	  ft_strnappend.c          \
-	  ft_strnappend_rev.c      \
+	  ft_strnappend_s1.c       \
+	  ft_strnappend_s2.c       \
 	  ft_strncat.c             \
 	  ft_strncmp.c             \
 	  ft_strncpy.c             \
@@ -100,8 +101,8 @@ SRC = ft_atoi.c                \
 	  ft_strndup_free.c        \
 	  ft_strnequ.c             \
 	  ft_strnew.c              \
-	  ft_strnjoin.c            \
-	  ft_strnjoin_rev.c        \
+	  ft_strnjoin_s1.c         \
+	  ft_strnjoin_s2.c         \
 	  ft_strnncat.c            \
 	  ft_strnncpy.c            \
 	  ft_strnstr.c             \
@@ -115,6 +116,8 @@ SRC = ft_atoi.c                \
 	  ft_tolower.c             \
 	  ft_toupper.c             \
 	  ft_uimaxtoa_base.c       \
+	  ft_wchar_byte.c          \
+	  ft_wstrlen.c             \
 	  get_next_line.c
 
 OBJ_PATH = ./obj/
