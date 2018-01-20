@@ -6,26 +6,11 @@
 /*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 09:19:59 by tcassier          #+#    #+#             */
-/*   Updated: 2018/01/20 04:29:54 by tcassier         ###   ########.fr       */
+/*   Updated: 2018/01/20 10:03:52 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
-
-static int	check_stack(t_stack *data)
-{
-	int		index;
-
-	if (data->size_b || !data->size_a)
-		return (0);
-	index = data->size_a;
-	while (--index)
-	{
-		if (data->stack_a[index] > data->stack_a[index - 1])
-			return (0);
-	}
-	return (1);
-}
 
 static void	exec(t_stack *data, char *line)
 {
@@ -55,7 +40,7 @@ static void	exec(t_stack *data, char *line)
 		failure();
 }
 
-int			process(int *stack_a, int *stack_b, int ac, int print)
+int			process(int *stack_a, int *stack_b, int size, int print)
 {
 	t_stack	*data;
 	char	*line;
@@ -65,7 +50,7 @@ int			process(int *stack_a, int *stack_b, int ac, int print)
 		failure();
 	data->stack_a = stack_a;
 	data->stack_b = stack_b;
-	data->size_a = ac;
+	data->size_a = size;
 	data->size_b = 0;
 	while (get_next_line(0, &line))
 	{

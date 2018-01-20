@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   exec_ra.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/10 13:48:56 by tcassier          #+#    #+#             */
-/*   Updated: 2018/01/20 10:07:51 by tcassier         ###   ########.fr       */
+/*   Created: 2017/12/09 09:57:01 by tcassier          #+#    #+#             */
+/*   Updated: 2018/01/20 08:16:20 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include "both.h"
+#include "both.h"
 
-enum { PA, PB, RA, RR, RB, RRA, RRB, RRR, SA, SB, SS };
-
-typedef struct		s_exec
+void	exec_ra(t_stack *data)
 {
-	int				exec;
-	struct s_exec	*next;
-}					t_exec;
+	int	tmp;
+	int index;
 
-void				process(int *stack_a, int *stack_b, int size, t_exec *lst);
-void				quick_sort(t_stack *data, t_exec *lst);
-#endif
+	if (data->size_a > 1)
+	{
+		index = data->size_a;
+		tmp = data->stack_a[data->size_a - 1];
+		while (--index)
+			data->stack_a[index] = data->stack_a[index - 1];
+		data->stack_a[index] = tmp;
+	}
+}

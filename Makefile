@@ -6,7 +6,7 @@
 #    By: tcassier <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/27 11:19:07 by tcassier          #+#    #+#              #
-#    Updated: 2018/01/17 18:40:30 by tcassier         ###   ########.fr        #
+#    Updated: 2018/01/20 10:09:23 by tcassier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,17 @@ CFLAGS = -Wall -Werror -Wextra -I$(INC_PATH) -I$(LFT_INC_PATH)
 
 SRC_1_PATH = ./src_checker/
 SRC_2_PATH = ./src_push_swap/
-SRCS_1 = $(addprefix $(SRC_1_PATH), $(SRC_1))
-SRCS_2 = $(addprefix $(SRC_2_PATH), $(SRC_2))
+SRC_3_PATH = ./src_both/
+SRCS_1 = $(addprefix $(SRC_1_PATH), $(SRC_1)) $(SRCS_3)
+SRCS_2 = $(addprefix $(SRC_2_PATH), $(SRC_2)) $(SRCS_3)
+SRCS_3 = $(addprefix $(SRC_3_PATH), $(SRC_3))
 SRC_1 = checker.c      \
+		print_stack.c  \
+		process.c
+SRC_2 = process.c      \
+		push_swap.c    \
+		quick_sort.c
+SRC_3 =	check_stack.c  \
 		exec_pa.c      \
 		exec_pb.c      \
 		exec_ra.c      \
@@ -35,21 +43,23 @@ SRC_1 = checker.c      \
 		exec_sb.c      \
 		exec_ss.c      \
 		failure.c      \
-		print_stack.c  \
-		process.c
-SRC_2 = push_swap.c
+		parser.c
 
 OBJ_PATH = ./obj/
 OBJS_1 = $(addprefix $(OBJ_PATH), $(OBJ_1))
 OBJS_2 = $(addprefix $(OBJ_PATH), $(OBJ_2))
+OBJS_3 = $(addprefix $(OBJ_PATH), $(OBJ_3))
 OBJ_1 = $(SRC_1:.c=.o)
 OBJ_2 = $(SRC_2:.c=.o)
+OBJ_3 = $(SRC_3:.c=.o)
 
 INC_PATH = ./includes/
 INCS_1 = $(addprefix $(INC_PATH), $(INC_1))
-INCS_1 = $(addprefix $(INC_PATH), $(INC_2))
+INCS_2 = $(addprefix $(INC_PATH), $(INC_2))
+INCS_3 = $(addprefix $(INC_PATH), $(INC_3))
 INC_1 = checker.h
 INC_2 = push_swap.h
+INC_3 = both.h
 
 LFT_INC_PATH = $(LFT_PATH)includes/
 LFT_PATH = ./libft/
@@ -57,18 +67,21 @@ LFT_FLAG = -L $(LFT_PATH) -lft
 
 all: $(NAME_1) $(NAME_2)
 
-$(NAME_1): $(OBJ_PATH) $(OBJS_1)
+$(NAME_1): $(OBJ_PATH) $(OBJS_1) $(OBJS_3)
 	@make -C $(LFT_PATH) all
-	@$(CC) $(CFLAGS) -o $@ $(OBJS_1) $(LFT_FLAG)
+	@$(CC) $(CFLAGS) -o $@ $(OBJS_1) $(OBJS_3) $(LFT_FLAG)
 
-$(NAME_2): $(OBJ_PATH) $(OBJS_2)
+$(NAME_2): $(OBJ_PATH) $(OBJS_2) $(OBJS_3)
 	@make -C $(LFT_PATH) all
-	@$(CC) $(CFLAGS) -o $@ $(OBJS_2) $(LFT_FLAG)
+	@$(CC) $(CFLAGS) -o $@ $(OBJS_2) $(OBJS_3) $(LFT_FLAG)
 
-$(OBJ_PATH)%.o: $(SRC_1_PATH)%.c $(INCS_1)
+$(OBJ_PATH)%.o: $(SRC_1_PATH)%.c $(INCS_1) $(INCS_3)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(OBJ_PATH)%.o: $(SRC_2_PATH)%.c $(INCS_2)
+$(OBJ_PATH)%.o: $(SRC_2_PATH)%.c $(INCS_2) $(INCS_3)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJ_PATH)%.o: $(SRC_3_PATH)%.c $(INCS_3)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_PATH):
@@ -77,6 +90,7 @@ $(OBJ_PATH):
 clean: clean_lft
 	@rm -f $(OBJS_1)
 	@rm -f $(OBJS_2)
+	@rm -f $(OBJS_3)
 	@rm -rf $(OBJ_PATH)
 
 fclean: clean fclean_lft

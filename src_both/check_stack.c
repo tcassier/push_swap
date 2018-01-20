@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   check_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/10 13:48:56 by tcassier          #+#    #+#             */
-/*   Updated: 2018/01/20 10:07:51 by tcassier         ###   ########.fr       */
+/*   Created: 2018/01/20 10:04:15 by tcassier          #+#    #+#             */
+/*   Updated: 2018/01/20 10:05:00 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include "both.h"
+#include "both.h"
 
-enum { PA, PB, RA, RR, RB, RRA, RRB, RRR, SA, SB, SS };
-
-typedef struct		s_exec
+int			check_stack(t_stack *data)
 {
-	int				exec;
-	struct s_exec	*next;
-}					t_exec;
+	int		index;
 
-void				process(int *stack_a, int *stack_b, int size, t_exec *lst);
-void				quick_sort(t_stack *data, t_exec *lst);
-#endif
+	if (data->size_b || !data->size_a)
+		return (0);
+	index = data->size_a;
+	while (--index)
+	{
+		if (data->stack_a[index] > data->stack_a[index - 1])
+			return (0);
+	}
+	return (1);
+}
