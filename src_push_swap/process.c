@@ -6,7 +6,7 @@
 /*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 09:19:57 by tcassier          #+#    #+#             */
-/*   Updated: 2018/01/20 10:03:30 by tcassier         ###   ########.fr       */
+/*   Updated: 2018/01/20 11:37:21 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,9 @@ static void	print_exec(int exec)
 		ft_putstr("sb\n");
 	else if (exec == SS)
 		ft_putstr("ss\n");
-	else
-		failure();
 }
 
-void		process(int *stack_a, int *stack_b, int size, t_exec *lst)
+void		process(int *stack_a, int *stack_b, int size, t_list *lst)
 {
 	t_stack	*data;
 
@@ -50,10 +48,10 @@ void		process(int *stack_a, int *stack_b, int size, t_exec *lst)
 	data->stack_b = stack_b;
 	data->size_a = size;
 	data->size_b = 0;
-	quick_sort(data, lst);
+	sort_algo(data, lst);
 	while (lst)
 	{
-		print_exec(lst->exec);
+		print_exec((int)lst->content_size);
 		lst = lst->next;
 	}
 }

@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   quick_sort.c                                       :+:      :+:    :+:   */
+/*   sort_algo.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/20 09:58:47 by tcassier          #+#    #+#             */
-/*   Updated: 2018/01/20 10:01:58 by tcassier         ###   ########.fr       */
+/*   Created: 2018/01/20 10:44:13 by tcassier          #+#    #+#             */
+/*   Updated: 2018/01/20 11:37:16 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.c"
+#include "push_swap.h"
 
-void		quick_sort(t_stack *data, t_exec *lst)
+void		sort_algo(t_stack *data, t_list *lst)
 {
+	int		index;
+
+	index = data->size_a;
 
 }
