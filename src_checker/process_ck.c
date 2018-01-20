@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   process.c                                          :+:      :+:    :+:   */
+/*   process_ck.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 09:19:59 by tcassier          #+#    #+#             */
-/*   Updated: 2018/01/20 10:03:52 by tcassier         ###   ########.fr       */
+/*   Updated: 2018/01/20 16:20:43 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	exec(t_stack *data, char *line)
 		failure();
 }
 
-int			process(int *stack_a, int *stack_b, int size, int print)
+int			process_ck(int *stack_a, int *stack_b, int size, int print)
 {
 	t_stack	*data;
 	char	*line;

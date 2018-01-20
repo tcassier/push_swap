@@ -6,7 +6,7 @@
 /*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 16:03:07 by tcassier          #+#    #+#             */
-/*   Updated: 2018/01/20 09:43:23 by tcassier         ###   ########.fr       */
+/*   Updated: 2018/01/20 18:10:48 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int			main(int ac, char **av)
 		ac--;
 	}
 	size_a = parser(--ac, ++av, &stack_a, &stack_b);
-	if (!process(stack_a, stack_b, size_a, print))
+	if (!process_ck(stack_a, stack_b, size_a, print))
 		ft_putstr("KO\n");
 	else
 		ft_putstr("OK\n");

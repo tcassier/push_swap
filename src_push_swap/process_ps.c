@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   process.c                                          :+:      :+:    :+:   */
+/*   process_ps.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 09:19:57 by tcassier          #+#    #+#             */
-/*   Updated: 2018/01/20 11:37:21 by tcassier         ###   ########.fr       */
+/*   Updated: 2018/01/20 18:16:59 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,23 @@ static void	print_exec(int exec)
 		ft_putstr("ss\n");
 }
 
-void		process(int *stack_a, int *stack_b, int size, t_list *lst)
+void		process_ps(int *stack_a, int *stack_b, int size, t_list *lst)
 {
 	t_stack	*data;
+	t_list	*tmp;
 
+	tmp = lst;
 	if (!(data = (t_stack*)ft_memalloc(sizeof(t_stack))))
 		failure();
 	data->stack_a = stack_a;
 	data->stack_b = stack_b;
 	data->size_a = size;
 	data->size_b = 0;
-	sort_algo(data, lst);
+	tmp = check_backstack(data, lst);
+	if (stack_a[data->size_a - 1] > stack_a[data->size_a - 2])
+		tmp = exec_save(data, tmp, SA);
+	if (size > 2 && !check_stack(data))
+		quick_sort(data, tmp);
 	while (lst)
 	{
 		print_exec((int)lst->content_size);

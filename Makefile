@@ -6,7 +6,7 @@
 #    By: tcassier <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/27 11:19:07 by tcassier          #+#    #+#              #
-#    Updated: 2018/01/20 10:09:23 by tcassier         ###   ########.fr        #
+#    Updated: 2018/01/20 17:45:31 by tcassier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,25 +24,27 @@ SRC_3_PATH = ./src_both/
 SRCS_1 = $(addprefix $(SRC_1_PATH), $(SRC_1)) $(SRCS_3)
 SRCS_2 = $(addprefix $(SRC_2_PATH), $(SRC_2)) $(SRCS_3)
 SRCS_3 = $(addprefix $(SRC_3_PATH), $(SRC_3))
-SRC_1 = checker.c      \
-		print_stack.c  \
-		process.c
-SRC_2 = process.c      \
-		push_swap.c    \
+SRC_1 = checker.c            \
+		print_stack.c        \
+		process_ck.c
+SRC_2 = check_backstack.c    \
+		exec_save.c          \
+		process_ps.c         \
+		push_swap.c          \
 		quick_sort.c
-SRC_3 =	check_stack.c  \
-		exec_pa.c      \
-		exec_pb.c      \
-		exec_ra.c      \
-		exec_rb.c      \
-		exec_rr.c      \
-		exec_rra.c     \
-		exec_rrb.c     \
-		exec_rrr.c     \
-		exec_sa.c      \
-		exec_sb.c      \
-		exec_ss.c      \
-		failure.c      \
+SRC_3 =	check_stack.c        \
+		exec_pa.c            \
+		exec_pb.c            \
+		exec_ra.c            \
+		exec_rb.c            \
+		exec_rr.c            \
+		exec_rra.c           \
+		exec_rrb.c           \
+		exec_rrr.c           \
+		exec_sa.c            \
+		exec_sb.c            \
+		exec_ss.c            \
+		failure.c            \
 		parser.c
 
 OBJ_PATH = ./obj/

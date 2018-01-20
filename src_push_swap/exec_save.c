@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   exec_save.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/20 09:14:25 by tcassier          #+#    #+#             */
-/*   Updated: 2018/01/20 16:21:23 by tcassier         ###   ########.fr       */
+/*   Created: 2018/01/20 15:09:50 by tcassier          #+#    #+#             */
+/*   Updated: 2018/01/20 18:06:55 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int			main(int ac, char **av)
+t_list	*exec_save(t_stack *data, t_list *lst, int exec)
 {
-	t_list	*lst;
-	int		*stack_a;
-	int		*stack_b;
-	int		size_a;
-
-	stack_a = NULL;
-	stack_b = NULL;
-	lst = NULL;
-	if (ac < 2)
+	if (exec == SA)
+		exec_sa(data);
+	else if (exec == SB)
+		exec_sb(data);
+	else if (exec == SS)
+		exec_ss(data);
+	else if (exec == PA)
+		exec_pa(data);
+	else if (exec == PB)
+		exec_pb(data);
+	else if (exec == RRA)
+		exec_rra(data);
+	else if (exec == RA)
+		exec_ra(data);
+	lst->content_size = (size_t)exec;
+	if (!(lst->next = ft_lstnew(NULL, 0)))
 		failure();
-	size_a = parser(--ac, ++av, &stack_a, &stack_b);
-	if (size_a > 1)
-	{
-		if (!(lst = ft_lstnew(NULL, 0)))
-			failure();
-		process_ps(stack_a, stack_b, size_a, lst);
-	}
-	return (EXIT_SUCCESS);
+	return (lst->next);
 }
