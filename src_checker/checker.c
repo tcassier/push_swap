@@ -6,7 +6,7 @@
 /*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 16:03:07 by tcassier          #+#    #+#             */
-/*   Updated: 2018/01/17 17:07:02 by tcassier         ###   ########.fr       */
+/*   Updated: 2018/01/20 05:58:29 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ static int	parser(int ac, char **av, int **stack_a, int **stack_b)
 	tab = NULL;
 	size = new_tab(ac, av, &tab);
 	check_tab(size, tab);
-	if (size > 1)
+	if (size >= 1)
 	{
 		if (!(*stack_a = (int*)ft_memalloc(sizeof(int) * size)) ||
 		(!(*stack_b = (int*)ft_memalloc(sizeof(int) * size))))
@@ -85,9 +85,9 @@ static int	parser(int ac, char **av, int **stack_a, int **stack_b)
 		index_rev = size;
 		while (++index < size && --index_rev >= 0)
 		{
-			if (ft_strlen(tab[index]) > 2 && ft_atoi(tab[index]) == -1)
+			if (ft_strlen(tab[index]) > 2 && ft_atoi_sec(tab[index]) == -1)
 				failure();
-			(*stack_a)[index_rev] = ft_atoi(tab[index]);
+			(*stack_a)[index_rev] = ft_atoi_sec(tab[index]);
 		}
 	}
 	return (size);
