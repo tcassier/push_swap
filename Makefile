@@ -6,7 +6,7 @@
 #    By: tcassier <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/27 11:19:07 by tcassier          #+#    #+#              #
-#    Updated: 2018/01/30 04:01:07 by tcassier         ###   ########.fr        #
+#    Updated: 2018/01/30 07:53:26 by tcassier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,8 +30,11 @@ SRC_1 = checker.c            \
 SRC_2 = check_backstack.c    \
 		check_upstack.c      \
 		exec_save.c          \
+		get_median.c         \
 		process_ps.c         \
-		push_swap.c
+		push_swap.c          \
+		quick_sort.c         \
+		small_sort.c
 SRC_3 =	check_stack.c        \
 		exec_pa.c            \
 		exec_pb.c            \

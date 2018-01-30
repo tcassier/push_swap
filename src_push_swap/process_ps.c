@@ -6,7 +6,7 @@
 /*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 09:19:57 by tcassier          #+#    #+#             */
-/*   Updated: 2018/01/30 04:05:56 by tcassier         ###   ########.fr       */
+/*   Updated: 2018/01/30 09:23:22 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,23 +41,21 @@ static void	print_exec(int exec)
 void		process_ps(int *stack_a, int *stack_b, int size, t_list *lst)
 {
 	t_stack	*data;
-	t_list	*tmp;
 
 	if (!(data = (t_stack*)ft_memalloc(sizeof(t_stack))))
 		failure();
 	data->stack_a = stack_a;
 	data->stack_b = stack_b;
 	data->size_a = size;
-	data->size_b = 0;
-	tmp = lst;
-	check_backstack(data, tmp);
-	check_upstack(data, tmp);
+	check_backstack(data, lst);
+	check_upstack(data, lst);
 	if (!check_stack(data))
 	{
+		data->lst = lst;
 		if (size <= 3)
-			three_sort();
+			small_sort(data, stack_a);
 		else
-			quick_sort();
+			quick_sort(data, size, 1, 2);
 	}
 	while (lst)
 	{

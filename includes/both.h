@@ -6,7 +6,7 @@
 /*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 08:08:02 by tcassier          #+#    #+#             */
-/*   Updated: 2018/01/30 03:35:11 by tcassier         ###   ########.fr       */
+/*   Updated: 2018/01/30 06:52:09 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ typedef struct	s_stack
 	int			*stack_b;
 	int			size_a;
 	int			size_b;
+	t_list		*lst;
 }				t_stack;
 
 int				check_stack(t_stack *data);

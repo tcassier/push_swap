@@ -6,13 +6,13 @@
 /*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 09:19:59 by tcassier          #+#    #+#             */
-/*   Updated: 2018/01/30 03:47:34 by tcassier         ###   ########.fr       */
+/*   Updated: 2018/01/30 07:50:56 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-static void	exec(t_stack *data, char *line)
+static void	exec_apply(t_stack *data, char *line)
 {
 	if (!ft_strcmp(line, "pa"))
 		exec_pa(data);
@@ -51,10 +51,9 @@ int			process_ck(int *stack_a, int *stack_b, int size, int print)
 	data->stack_a = stack_a;
 	data->stack_b = stack_b;
 	data->size_a = size;
-	data->size_b = 0;
 	while (get_next_line(0, &line))
 	{
-		exec(data, line);
+		exec_apply(data, line);
 		if (print == 1)
 			print_stack(data);
 	}
