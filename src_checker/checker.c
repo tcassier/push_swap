@@ -6,7 +6,7 @@
 /*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 16:03:07 by tcassier          #+#    #+#             */
-/*   Updated: 2018/01/20 18:10:48 by tcassier         ###   ########.fr       */
+/*   Updated: 2018/01/30 03:45:38 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int			main(int ac, char **av)
 	stack_a = NULL;
 	stack_b = NULL;
 	if (ac < 2)
-		failure();
+		return (EXIT_SUCCESS);
 	if (!ft_strcmp(av[1], "-v"))
 	{
 		print++;

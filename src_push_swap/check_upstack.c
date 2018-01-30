@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   check_upstack.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/12 19:38:01 by tcassier          #+#    #+#             */
-/*   Updated: 2018/01/30 04:07:02 by tcassier         ###   ########.fr       */
+/*   Created: 2018/01/30 03:51:49 by tcassier          #+#    #+#             */
+/*   Updated: 2018/01/30 04:01:58 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-char		*ft_strdup(const char *s1)
+void		check_upstack(t_stack *data, t_list *lst)
 {
-	char	*dest;
+	int		index;
 
-	if (!(dest = ft_strnew(ft_strlen(s1))))
-		return (NULL);
-	ft_strcpy(dest, s1);
-	return (dest);
+	index = data->size_a - 1;
+	if (data->size_a > 3)
+	{
+		while (--index > 0)
+		{
+			if (data->stack_a[index] > data->stack_a[index - 1])
+				return ;
+		}
+		if (data->stack_a[data->size_a - 1] > data->stack_a[data->size_a - 2])
+			exec_save(data, lst, SA);
+	}
 }

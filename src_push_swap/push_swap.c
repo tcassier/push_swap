@@ -6,7 +6,7 @@
 /*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 09:14:25 by tcassier          #+#    #+#             */
-/*   Updated: 2018/01/20 16:21:23 by tcassier         ###   ########.fr       */
+/*   Updated: 2018/01/30 03:48:14 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int			main(int ac, char **av)
 	stack_b = NULL;
 	lst = NULL;
 	if (ac < 2)
-		failure();
+		return (EXIT_SUCCESS);
 	size_a = parser(--ac, ++av, &stack_a, &stack_b);
 	if (size_a > 1)
 	{
