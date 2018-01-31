@@ -6,7 +6,7 @@
 /*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 16:48:21 by tcassier          #+#    #+#             */
-/*   Updated: 2018/01/30 07:12:12 by tcassier         ###   ########.fr       */
+/*   Updated: 2018/01/31 08:04:10 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ void			check_backstack(t_stack *data, t_list *lst)
 			if (data->stack_a[index] > data->stack_a[index - 1])
 				return ;
 		}
-		if (data->stack_a[1] > data->stack_a[0])
+		if (data->stack_a[1] > data->stack_a[0] &&
+		data->stack_a[0] > data->stack_a[2])
 		{
 			lst = exec_save(data, lst, RRA);
 			lst = exec_save(data, lst, RRA);

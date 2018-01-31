@@ -6,18 +6,13 @@
 /*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 13:48:56 by tcassier          #+#    #+#             */
-/*   Updated: 2018/01/31 07:29:46 by tcassier         ###   ########.fr       */
+/*   Updated: 2018/01/31 08:04:30 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "both.h"
-
-# define STKA data->stack_a
-# define STKB data->stack_b
-# define SIZA data->size_a
-# define SIZB data->size_b
 
 enum { NONE, PA, PB, RA, RR, RB, RRA, RRB, RRR, SA, SB, SS };
 
