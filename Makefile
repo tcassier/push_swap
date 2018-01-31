@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tcassier <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2017/11/27 11:19:07 by tcassier          #+#    #+#              #
-#    Updated: 2018/01/30 07:53:26 by tcassier         ###   ########.fr        #
+#    Created: 2018/01/31 07:29:26 by tcassier          #+#    #+#              #
+#    Updated: 2018/01/31 07:29:27 by tcassier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRC_2 = check_backstack.c    \
 		check_upstack.c      \
 		exec_save.c          \
 		get_median.c         \
+		lst_cleaner.c        \
 		process_ps.c         \
 		push_swap.c          \
 		quick_sort.c         \

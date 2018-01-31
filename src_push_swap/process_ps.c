@@ -6,7 +6,7 @@
 /*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 09:19:57 by tcassier          #+#    #+#             */
-/*   Updated: 2018/01/30 09:23:22 by tcassier         ###   ########.fr       */
+/*   Updated: 2018/01/31 07:28:12 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void		process_ps(int *stack_a, int *stack_b, int size, t_list *lst)
 		else
 			quick_sort(data, size, 1, 2);
 	}
+	lst_cleaner(&lst);
 	while (lst)
 	{
 		print_exec((int)lst->content_size);

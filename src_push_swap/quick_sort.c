@@ -6,7 +6,7 @@
 /*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/30 04:12:43 by tcassier          #+#    #+#             */
-/*   Updated: 2018/01/30 09:29:18 by tcassier         ###   ########.fr       */
+/*   Updated: 2018/01/31 06:55:08 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,8 @@ void		quick_sort(t_stack *data, int size, int pile, int phase)
 
 	index = 0;
 	reset = 0;
-	pivot = get_median(pile ? data->stack_a : data->stack_b, size);
+	pivot = get_median(pile ? data->stack_a : data->stack_b, pile ?
+	data->size_a : data->size_b, size);
 	if (sorted(data, size, pile))
 		return ;
 	while (size > 3 && index < (size / 2) + (size % 2 && !pile) && ++reset)
@@ -80,7 +81,7 @@ void		quick_sort(t_stack *data, int size, int pile, int phase)
 	if (size - index <= 3)
 		three_sort(data, size - index, pile);
 	else
-		quick_sort(data, size - index, pile, phase == 2 ? phase - 1 : phase);
+		quick_sort(data, size - index, pile, phase == 2 ? 1 : phase);
 	if (index && pile)
 		quick_sort(data, index, !pile, phase == 2 ? 1 : 0);
 	while (index--)
