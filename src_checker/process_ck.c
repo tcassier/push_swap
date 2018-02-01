@@ -6,7 +6,7 @@
 /*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 09:19:59 by tcassier          #+#    #+#             */
-/*   Updated: 2018/01/30 07:50:56 by tcassier         ###   ########.fr       */
+/*   Updated: 2018/02/01 04:20:37 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,9 @@ int			process_ck(int *stack_a, int *stack_b, int size, int print)
 		exec_apply(data, line);
 		if (print == 1)
 			print_stack(data);
+		ft_strdel(&line);
 	}
 	ret = check_stack(data);
+	free(data);
 	return (ret);
 }

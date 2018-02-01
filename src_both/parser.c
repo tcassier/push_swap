@@ -6,11 +6,21 @@
 /*   By: tcassier <tcassier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 09:10:59 by tcassier          #+#    #+#             */
-/*   Updated: 2018/01/20 16:05:08 by tcassier         ###   ########.fr       */
+/*   Updated: 2018/02/01 04:13:59 by tcassier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "both.h"
+
+static void	tab_del(char **tab, int size)
+{
+	int		index;
+
+	index = -1;
+	while (++index < size)
+		free(tab[index]);
+	free(tab);
+}
 
 static void	check_tab(int size, char **tab)
 {
@@ -59,7 +69,7 @@ static int	new_tab(int ac, char **av, char ***tab)
 		if (!(tmp = ft_strsplit(av[index_av], ' ')))
 			failure();
 		index = -1;
-		while (++index < ft_count_word(av[index_av], ' '))
+		while (tmp[++index])
 			(*tab)[index_tab++] = tmp[index];
 		free(tmp);
 	}
@@ -90,5 +100,6 @@ int			parser(int ac, char **av, int **stack_a, int **stack_b)
 			(*stack_a)[index_rev] = ft_atoi_sec(tab[index]);
 		}
 	}
+	tab_del(tab, size);
 	return (size);
 }
